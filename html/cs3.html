@@ -1,0 +1,29 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Audio Player with Image Toggle</title>  
+    <link rel="stylesheet" href="styles.css">  
+</head>  
+<body>  
+    <img id="toggleButton" src="toggle_image.jpg" alt="Toggle Audio">  
+    <audio id="myAudio" preload="auto" controls style="display: none;">  
+        <source src="../多媒体/广告时间（背景音乐.mp3" type="audio/mpeg">  
+        Your browser does not support the audio element.  
+    </audio>  
+  
+    <script>
+        document.getElementById('toggleButton').addEventListener('click', function() {  
+    var audio = document.getElementById('myAudio');  
+    if (audio.style.display === 'none') {  
+        audio.style.display = 'block'; // 显示音频控制条  
+    } else {  
+        audio.style.display = 'none'; // 隐藏音频控制条  
+    }  
+    // 如果需要，还可以在这里添加播放或暂停音频的代码  
+    // 例如：audio.play(); 或 audio.pause();  
+});
+    </script>  
+</body>  
+</html>

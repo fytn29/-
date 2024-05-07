@@ -1,0 +1,26 @@
+h1{
+    font-size: 20px;
+    font-family: "黑体";
+}
+table{
+    width: 600px;
+    background:linear-gradient(rgb(228, 223, 180,0.7),rgb(252, 230, 185,0.7),rgb(241, 229, 196,0.7));
+    /* background:linear-gradient(rgba(187, 204, 237, 0.7),rgba(175, 177, 224, 0.7),rgba(206, 187, 212, 0.7));
+    
+    border-left: 20px rgb(248, 23, 181) solid;
+    border-bottom: 25px rgb(0, 230, 242) solid;
+    /* border-top: 20px rgb(0, 217, 255) solid; */
+    /* border-right: 25px rgb(0, 221, 255) solid; */ */
+    
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    
+    background-image: url(../images/table.jpg);
+}
+td{
+    color:
+}

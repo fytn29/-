@@ -1,0 +1,62 @@
+<!DOCTYPE html>  
+<html lang="zh">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>弹幕效果示例</title>  
+    <style>  
+        #barrage-container {  
+            position: relative;  
+            height: 200px;  
+            overflow: hidden;  
+            background-color: #000;  
+            color: #fff;  
+            font-size: 18px;  
+            font-weight: bold;  
+        }  
+  
+        .barrage-item {  
+            position: absolute;  
+            white-space: nowrap;  
+            pointer-events: none;  
+            animation: moveBarrage 5s linear infinite;  
+        }  
+  
+        @keyframes moveBarrage {  
+            0% { transform: translateX(100%); }  
+            100% { transform: translateX(-100%); }  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div id="barrage-container"></div>  
+  
+    <script>  
+        // 模拟的弹幕内容  
+        const barrages = [  
+            "江白，你醒了？",  
+            "感觉怎么样？",  
+            // ...更多内容  
+        ];  
+  
+        function showBarrage(text) {  
+            const container = document.getElementById('barrage-container');  
+            const item = document.createElement('div');  
+            item.classList.add('barrage-item');  
+            item.textContent = text;  
+            container.appendChild(item);  
+  
+            // 弹幕移动结束后移除  
+            item.addEventListener('animationend', function() {  
+                container.removeChild(item);  
+            });  
+        }  
+  
+        // 每隔一段时间显示一条弹幕  
+        setInterval(() => {  
+            const randomIndex = Math.floor(Math.random() * barrages.length);  
+            showBarrage(barrages[randomIndex]);  
+        }, 2000); // 每2秒显示一条弹幕  
+    </script>  
+</body>  
+</html>

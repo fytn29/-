@@ -1,0 +1,98 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>图片立方体增加厚度</title>  
+<link rel="stylesheet" href="styles.css">  
+<style>
+  
+  div{
+    border: 0px;
+    color: aliceblue;
+  }
+    .cube {  
+  position: relative;  
+  left: 500px;
+  top: 500px;
+  width: 200px; /* 立方体的宽度 */  
+  height: 200px; /* 立方体的高度 */  
+  transform-style: preserve-3d; /* 保持子元素的3D空间 */  
+  transform: rotateX(0deg) rotateY(0deg); /* 初始旋转状态 */  
+}  
+.face {  
+  position: absolute;  
+
+  background-size: cover; /* 图片覆盖整个面 */  
+  background-image: url('your-image.jpg'); /* 替换为你的图片路径 */  
+  border: 2px solid #333; /* 为面添加边框以模拟厚度 */  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加阴影模拟厚度 */  
+}  
+/* ... 其他CSS代码保持不变 ... */  
+/* 定义旋转动画 */  
+@keyframes rotateCube {  
+  from {  
+    transform: rotateX(0deg) rotateY(0deg);  
+  }  
+  to {  
+    transform: rotateX(360deg) rotateY(360deg);  
+  }  
+}  
+/* 应用旋转动画到立方体容器 */  
+.cube:hover {  
+  /* ... 其他样式保持不变 ... */  
+  animation: rotateCube 5s infinite linear; /* 应用动画，5秒旋转一周，无限次循环，线性速度 */  
+}
+.front { 
+  transform: translateZ(100px); 
+  background-color: rgb(255, 255, 255); 
+  opacity: 0.5;
+ 
+} /* 前面 */  
+.back { 
+  transform: rotateY(180deg) translateZ(100px); 
+  background-color: rgb(255, 255, 255);
+  opacity: 0.5;
+  width: 200px; /* 每个面的宽度 */  
+  height: 200px; /* 每个面的高度 */  
+} /* 后面 */  
+  
+.left { 
+  transform: rotateY(-90deg) translateZ(100px);
+   background-color: rgb(77, 77, 77);opacity: 0.5;
+   width: 200px; /* 每个面的宽度 */  
+  height: 200px; /* 每个面的高度 */  
+  } /* 左面 */  
+.right {
+   transform: rotateY(90deg) translateZ(100px); 
+  background-color: rgb(255, 255, 255); opacity: 0.5;
+   
+
+} /* 右面 */  
+.top {
+   transform: rotateX(90deg) translateZ(100px);
+  background-color: rgb(0, 0, 0); opacity: 0.5;
+  width: 200px; /* 每个面的宽度 */  
+  height: 200px; /* 每个面的高度 */  
+} /* 上面 */  
+.bottom { 
+  transform: rotateX(-90deg) translateZ(100px);
+ background-color: rgb(255, 255, 255); opacity: 0.5;
+
+ } /* 下面 */
+</style>
+</head>  
+<body>  
+  
+<div class="cube">  
+  <div class="face front"></div>  
+  <div class="face back"></div>  
+  <div class="face left"></div>  
+  <div class="face right"></div>  
+  <div class="face top"></div>  
+  <div class="face bottom"></div>  
+</div>  
+  
+<script src="script.js"></script>  
+</body>  
+</html>

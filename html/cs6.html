@@ -1,0 +1,45 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>自定义警告框示例</title>  
+    <!-- 引入 Bootstrap CSS -->  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>  
+    <!-- 引入 Bootstrap JavaScript -->  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
+</head>  
+<body>  
+  
+<!-- 自定义警告框模板 -->  
+<div class="alert alert-dismissible fade show" role="alert" id="alertTemplate">  
+    <strong>警告!</strong> 这是一个警告框。  
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">  
+        <span aria-hidden="true">&times;</span>  
+    </button>  
+</div>  
+  
+<script>  
+    $(document).ready(function() {  
+        // 弹出5个警告框  
+        for (let i = 0; i < 5; i++) {  
+            // 克隆警告框模板  
+            let alertClone = $('#alertTemplate').clone().attr('id', 'alert' + i);  
+            // 添加到 body 中  
+            $('body').append(alertClone);  
+            // 初始化 Bootstrap alert 组件（如果自动初始化没有生效）  
+            alertClone.alert();  
+        }  
+  
+        // 为关闭的警告框绑定事件（如果你需要执行额外的操作）  
+        $('body').on('closed.bs.alert', '.alert', function () {  
+            // 你可以在这里做一些清理工作，例如删除事件监听器等  
+            console.log('警告框已关闭:', $(this).attr('id'));  
+        });  
+    });  
+</script>  
+  
+</body>  
+</html>

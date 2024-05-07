@@ -1,0 +1,47 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>动态创建警告框</title>  
+    <!-- 引入 Bootstrap CSS -->  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>  
+    <!-- 引入 Bootstrap JavaScript（可选，因为我们不使用其 JavaScript 插件功能） -->  
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->  
+    <script>  
+        $(document).ready(function() {  
+            // 弹出5个警告框  
+            for (let i = 0; i < 5; i++) {  
+                // 创建警告框的 HTML 结构  
+                let alertHTML = `  
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" id="alert${i}">  
+                        <strong>警告 ${i+1}!</strong> 这是一个动态创建的警告框。  
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">  
+                            <span aria-hidden="true">&times;</span>  
+                        </button>  
+                    </div>  
+                `;  
+                // 将警告框添加到 body 中  
+                $('body').append(alertHTML);  
+                  
+                // 如果你需要初始化 Bootstrap 的 alert 插件（比如为渐变效果），可以调用 $().alert()，但在这个例子中不需要  
+                // $('#alert' + i).alert(); // 注释掉，因为我们不使用插件的额外功能  
+  
+                // 等待显示动画完成（如果需要的话）  
+                // ...  
+  
+                // 如果需要监听关闭事件  
+                $('#alert' + i).on('closed.bs.alert', function () {  
+                    // 警告框已关闭，执行一些操作（如果需要）  
+                    console.log('警告框 #alert' + $(this).attr('id') + ' 已关闭');  
+                });  
+            }  
+        });  
+    </script>  
+</head>  
+<body>  
+    <!-- 页面内容 -->  
+</body>  
+</html>
